@@ -4,7 +4,7 @@ import { useSplit } from "@/context/SplitContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
-import { ArrowLeft, Save } from "lucide-react";
+import { ArrowLeft, Save, UserPlus } from "lucide-react";
 import { toast } from "sonner";
 
 const AddItem = () => {
