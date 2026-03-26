@@ -9,11 +9,12 @@ import { toast } from "sonner";
 
 const AddItem = () => {
   const navigate = useNavigate();
-  const { people, addItem } = useSplit();
+  const { people, addPerson, addItem } = useSplit();
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
   const [payerId, setPayerId] = useState<string | null>(null);
   const [splitWithIds, setSplitWithIds] = useState<Set<string>>(new Set());
+  const [newName, setNewName] = useState("");
 
   const toggleSplit = (id: string) => {
     setSplitWithIds((prev) => {
