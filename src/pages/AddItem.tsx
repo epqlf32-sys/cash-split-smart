@@ -103,9 +103,40 @@ const AddItem = () => {
         {/* People selection */}
         <div className="space-y-2">
           <label className="text-sm font-semibold text-muted-foreground">인원 선택</label>
+          {/* Add person inline */}
+          <div className="flex gap-2">
+            <Input
+              placeholder="이름 입력"
+              value={newName}
+              onChange={(e) => setNewName(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  const trimmed = newName.trim();
+                  if (trimmed) {
+                    addPerson(trimmed);
+                    setNewName("");
+                  }
+                }
+              }}
+              className="h-10"
+            />
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={() => {
+                const trimmed = newName.trim();
+                if (trimmed) {
+                  addPerson(trimmed);
+                  setNewName("");
+                }
+              }}
+            >
+              <UserPlus className="h-4 w-4" />
+            </Button>
+          </div>
           {people.length === 0 ? (
             <div className="text-center py-8 rounded-xl bg-secondary">
-              <p className="text-muted-foreground text-sm">먼저 메인 화면에서 인원을 추가해주세요</p>
+              <p className="text-muted-foreground text-sm">위에서 인원을 추가해주세요</p>
             </div>
           ) : (
             <div className="rounded-xl border overflow-hidden">
